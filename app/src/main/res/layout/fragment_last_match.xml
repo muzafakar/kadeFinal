@@ -5,14 +5,16 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/spLeague"
+        android:id="@+id/spMatchLeague"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spinner_all_padding" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvTeams"
+        android:id="@+id/rvLastMatch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent" />
+        android:background="@android:color/holo_green_dark" />
+
 
 </LinearLayout>
