@@ -1,4 +1,4 @@
-package com.muzadev.footballapp.activity.activity
+package com.muzadev.footballapp.view.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.muzadev.footballapp.R
-import com.muzadev.footballapp.activity.fragment.MatchesFragment
+import com.muzadev.footballapp.view.fragment.FavouritesFragment
+import com.muzadev.footballapp.view.fragment.MatchesFragment
+import com.muzadev.footballapp.view.fragment.TeamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
@@ -31,12 +33,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_teams -> {
-                    replaceFragment(MatchesFragment())
+                    replaceFragment(TeamsFragment())
                     toast("${it.title}")
                     true
                 }
                 R.id.bottom_favourties -> {
-                    replaceFragment(MatchesFragment())
+                    replaceFragment(FavouritesFragment())
                     toast("${it.title}")
                     true
                 }

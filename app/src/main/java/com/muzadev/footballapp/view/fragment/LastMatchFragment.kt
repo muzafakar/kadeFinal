@@ -1,4 +1,4 @@
-package com.muzadev.footballapp.activity.fragment
+package com.muzadev.footballapp.view.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,7 +17,7 @@ class LastMatchFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_last_match, container, false)
+        val view = inflater.inflate(R.layout.fragment_sp_rv, container, false)
         return view
     }
 }
