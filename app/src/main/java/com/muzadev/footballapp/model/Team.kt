@@ -159,5 +159,5 @@ data class Team(
 data class TeamResponse(
 
         @SerializedName("teams")
-        val teams: List<Team?>? = null
+        val teams: List<Team>
 )

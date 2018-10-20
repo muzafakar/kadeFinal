@@ -6,22 +6,22 @@
 
 
     <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/spinner"
+        android:id="@+id/spCommon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spinner_all_padding" />
+
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/pbCommon"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvComon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_green_dark" />
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

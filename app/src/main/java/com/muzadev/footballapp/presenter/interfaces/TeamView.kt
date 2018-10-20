@@ -1,4 +1,4 @@
-package com.muzadev.footballapp.presenter
+package com.muzadev.footballapp.presenter.interfaces
 
 import com.muzadev.footballapp.model.Team
 
@@ -7,5 +7,5 @@ import com.muzadev.footballapp.model.Team
  * For educational purposes
  */
 interface TeamView : BaseView {
-    fun showTeams(teams: List<Team>)
+    fun showTeams(teams: List<Team>?)
 }

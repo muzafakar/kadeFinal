@@ -6,4 +6,14 @@
     <string name="last">Last</string>
     <string name="next">Next</string>
     <string name="search">Search</string>
+    <string name="DEFAULT_LEAGUE">English Premiere League</string>
+
+    <array name="ALL_LEAGUE">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
 </resources>

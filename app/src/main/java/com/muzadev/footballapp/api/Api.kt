@@ -1,29 +1,31 @@
 package com.muzadev.footballapp.api
 
-import com.muzadev.footballapp.model.Team
-import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
-
 /**
  * Created by zulfakar on 18/10/18.
  * For educational purposes
  */
-interface Api {
+object Api {
+    private const val BASE_URL = "https://www.thesportsdb.com/api/v1/json/1/"
 
-    @GET("search_all_teams.php")
-    fun getTeams(@Query("l") league: String): Call<List<Team>>
-
-    companion object {
-        fun create(): Api {
-            val retrofit = Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("https://www.thesportsdb.com/api/v1/json/1/")
-                    .build()
-
-            return retrofit.create(Api::class.java)
-        }
+    fun getTeams(league: String?): String {
+        return "${BASE_URL}search_all_teams.php?l=$league"
     }
+
+
+//    fun getEventDetail(eventId: String?): String {
+//        return "${BASE_URL}lookupevent.php?id=$eventId"
+//    }
+
+
+//    fun getSpecificTeam(teamName: String?): String {
+//        return "${BASE_URL}searchteams.php?t=$teamName"
+//    }
+
+//    fun getPrevMatches(leagueId: String?): String {
+//        return "${BASE_URL}eventspastleague.php?id=$leagueId"
+//    }
+
+//    fun getNextMatches(leagueId: String?): String {
+//        return "${BASE_URL}eventsnextleague.php?id=$leagueId"
+//    }
 }

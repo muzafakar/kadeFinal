@@ -1,4 +1,4 @@
-package com.muzadev.footballapp.presenter
+package com.muzadev.footballapp.presenter.interfaces
 
 /**
  * Created by zulfakar on 18/10/18.
