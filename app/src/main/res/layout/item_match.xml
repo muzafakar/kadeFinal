@@ -18,11 +18,12 @@
 
         <ImageView
             android:id="@+id/imgReminder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/add_to_reminder"
+            android:src="@drawable/ic_add_alert"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_add_alert" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvMatchDate"
@@ -40,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMatchDate"
+            app:layout_constraintEnd_toEndOf="@+id/tvMatchDate"
+            app:layout_constraintStart_toStartOf="@+id/tvMatchDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchDate"
             tools:text="21:00" />
 
         <TextView
@@ -50,21 +51,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/versus"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMatchTime"
-            tools:text="VS" />
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvMatchTime"
+            app:layout_constraintStart_toStartOf="@+id/tvMatchTime"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime" />
 
         <TextView
             android:id="@+id/tvHomeTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@id/tvVersus"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMatchTime"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvHomeScore"
+            app:layout_constraintStart_toStartOf="@+id/tvHomeScore"
+            app:layout_constraintTop_toBottomOf="@id/tvHomeScore"
             tools:text="Liverpool" />
 
         <TextView
@@ -73,10 +79,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvVersus"
-            app:layout_constraintTop_toBottomOf="@id/tvMatchTime"
+            app:layout_constraintEnd_toEndOf="@+id/tvAwayScore"
+            app:layout_constraintStart_toStartOf="@+id/tvAwayScore"
+            app:layout_constraintTop_toBottomOf="@+id/tvAwayScore"
             tools:text="Chelsea" />
+
+        <TextView
+            android:id="@+id/tvHomeScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvMatchTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/tvAwayScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvMatchTime"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2" />
 
     </android.support.constraint.ConstraintLayout>
 

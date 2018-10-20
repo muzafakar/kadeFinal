@@ -162,5 +162,5 @@ data class Match(
 data class MatchResponse(
 
         @field:SerializedName("events")
-        val events: List<Match?>? = null
+        val events: List<Match>
 )

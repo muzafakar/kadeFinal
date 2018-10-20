@@ -44,7 +44,7 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        leagues.addAll(ctx.resources.getStringArray(R.array.ALL_LEAGUE))
+        leagues.addAll(ctx.resources.getStringArray(R.array.ALL_LEAGUE_NAMES))
         spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, leagues)
 
         rvAdapter = TeamAdapter(activity!!.applicationContext, teamList) {
