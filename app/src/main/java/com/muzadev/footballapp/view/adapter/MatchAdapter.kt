@@ -1,6 +1,10 @@
 package com.muzadev.footballapp.view.adapter
 
+import android.content.ContentUris
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.provider.CalendarContract
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -33,17 +37,28 @@ class MatchAdapter(private val context: Context, private val matches: List<Match
             itemView.tvHomeTeam.text = match.strHomeTeam
             itemView.tvAwayTeam.text = match.strAwayTeam
 
-            itemView.imgReminder.setOnClickListener {
-                //add to calendar here
+            itemView.setOnClickListener {
+                listener(match)
             }
+
             if (!isNextMatch) {
                 itemView.imgReminder.visibility = View.GONE
                 itemView.tvHomeScore.text = "${match.intHomeScore}"
                 itemView.tvAwayScore.text = "${match.intAwayScore}"
+            } else {
+                itemView.imgReminder.setOnClickListener {
+                    //                    Toast.makeText(context, "add to reminder", Toast.LENGTH_SHORT).show()
+                    openCalendar(match.strDate)
+                }
             }
-            itemView.setOnClickListener {
-                listener(match)
-            }
+        }
+
+        private fun openCalendar(date: String?) {
+            val startMillis: Long = 100
+            val builder: Uri.Builder = CalendarContract.CONTENT_URI.buildUpon().appendPath(date)
+            ContentUris.appendId(builder, startMillis)
+            val intent = Intent(Intent.ACTION_VIEW).setData(builder.build())
+            context.startActivity(intent)
         }
     }
 }

@@ -11,11 +11,23 @@ object Api {
         return "${BASE_URL}search_all_teams.php?l=$league"
     }
 
+    fun getTeam(teamId: String?): String {
+        return "${BASE_URL}lookupteam.php?id=$teamId"
+    }
+
     fun getNextMatches(leagueId: String?): String {
         return "${BASE_URL}eventsnextleague.php?id=$leagueId"
     }
 
     fun getLastMatch(leagueId: String?): String {
         return "${BASE_URL}eventspastleague.php?id=$leagueId"
+    }
+
+    fun getPlayerList(teamId: String?): String {
+        return "${BASE_URL}lookup_all_players.php?id=$teamId"
+    }
+
+    fun getPlayerDetail(pleayerId: String?): String {
+        return "${BASE_URL}lookupplayer.php?id=$pleayerId"
     }
 }

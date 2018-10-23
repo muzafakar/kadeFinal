@@ -17,19 +17,22 @@ import com.muzadev.footballapp.api.ApiRepo
 import com.muzadev.footballapp.model.Team
 import com.muzadev.footballapp.presenter.TeamPresenter
 import com.muzadev.footballapp.presenter.interfaces.TeamView
+import com.muzadev.footballapp.util.Const
 import com.muzadev.footballapp.util.CoroutinesContextProvider
+import com.muzadev.footballapp.view.activity.TeamDetailActivity
 import com.muzadev.footballapp.view.adapter.TeamAdapter
 import kotlinx.android.synthetic.main.fragment_sp_rv.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.ctx
-import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.support.v4.intentFor
 
 /**
  * Created by zulfakar on 16/10/18.
  * For educational purposes
  */
 class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, AnkoLogger {
+
 
     private lateinit var progressBar: ProgressBar
     private lateinit var rvAdapter: TeamAdapter
@@ -49,7 +52,7 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
 
         rvAdapter = TeamAdapter(activity!!.applicationContext, teamList) {
             // intent to teamDetail
-            toast("${it.strTeam}")
+            ctx.startActivity(intentFor<TeamDetailActivity>(Const.team to it))
         }
         presenter = TeamPresenter(this, ApiRepo(), Gson(), CoroutinesContextProvider())
 
@@ -81,6 +84,8 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
         rvAdapter.notifyDataSetChanged()
     }
 
+    override fun showTeam(team: Team?) {}
+
     override fun showLoading() {
         info { "shwLading" }
         progressBar.isEnabled = true
@@ -102,4 +107,5 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {}
+
 }

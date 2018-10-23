@@ -53,9 +53,10 @@ dependencies {
     implementation "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
 
-//    glide 
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+//    picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 
 //    retrofit
     implementation "com.squareup.retrofit2:retrofit:2.4.0"
@@ -64,7 +65,6 @@ dependencies {
 
 //    3rd party
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
-
 
 //    testing
     testImplementation 'junit:junit:4.12'

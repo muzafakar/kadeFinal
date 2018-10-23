@@ -23,9 +23,10 @@ class FavouritesFragment : Fragment() {
     }
 
     fun setupViewPager(viewpager: ViewPager) {
-        val adapter = TabLayoutAdapter(childFragmentManager)
-        adapter.addFragment(FavouriteMatchFragment(), resources.getString(R.string.matches))
-        adapter.addFragment(FavouriteTeamFragment(), resources.getString(R.string.teams))
+        val adapter = TabLayoutAdapter(childFragmentManager).apply {
+            addFragment(FavouriteMatchFragment(), resources.getString(R.string.matches))
+            addFragment(FavouriteTeamFragment(), resources.getString(R.string.teams))
+        }
         viewpager.adapter = adapter
     }
 }

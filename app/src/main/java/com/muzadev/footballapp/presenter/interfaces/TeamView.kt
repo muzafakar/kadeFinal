@@ -8,4 +8,5 @@ import com.muzadev.footballapp.model.Team
  */
 interface TeamView : BaseView {
     fun showTeams(teams: List<Team>?)
+    fun showTeam(team: Team?)
 }

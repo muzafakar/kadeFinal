@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.muzadev.footballapp.R
 import com.muzadev.footballapp.model.Team
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_team.view.*
 
 /**
@@ -27,7 +27,7 @@ class TeamAdapter(private val context: Context, private val teams: List<Team>, p
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(team: Team, listener: (Team) -> Unit) {
             itemView.tvTeamName.text = team.strTeam
-            Glide.with(context).load(team.strTeamBadge).into(itemView.imgTeamBadge)
+            Picasso.get().load(team.strTeamBadge).into(itemView.imgTeamBadge)
             itemView.setOnClickListener {
                 listener(team)
             }

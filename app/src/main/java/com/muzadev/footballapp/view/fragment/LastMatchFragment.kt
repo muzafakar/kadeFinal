@@ -17,12 +17,14 @@ import com.muzadev.footballapp.api.ApiRepo
 import com.muzadev.footballapp.model.Match
 import com.muzadev.footballapp.presenter.MatchPresenter
 import com.muzadev.footballapp.presenter.interfaces.MatchView
+import com.muzadev.footballapp.util.Const
 import com.muzadev.footballapp.util.CoroutinesContextProvider
+import com.muzadev.footballapp.view.activity.MatchDetailActivity
 import com.muzadev.footballapp.view.adapter.MatchAdapter
 import kotlinx.android.synthetic.main.fragment_sp_rv.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.support.v4.ctx
-import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.support.v4.intentFor
 
 /**
  * Created by zulfakar on 16/10/18.
@@ -56,7 +58,7 @@ class LastMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
 
         spAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, leagueName)
         rvAdapter = MatchAdapter(activity!!.applicationContext, matchList, false) {
-            toast("${it.strEvent}")
+            ctx.startActivity(intentFor<MatchDetailActivity>(Const.match to it))
         }
 
         presenter = MatchPresenter(this, ApiRepo(), Gson(), CoroutinesContextProvider())

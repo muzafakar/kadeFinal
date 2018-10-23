@@ -54,7 +54,7 @@ class NextMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
 
         spAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, leagueName)
         rvAdapter = MatchAdapter(activity!!.applicationContext, matchList) {
-            toast("${it.strEvent}")
+            toast(resources.getString(R.string.match_unavailable))
         }
 
         presenter = MatchPresenter(this, ApiRepo(), Gson(), CoroutinesContextProvider())

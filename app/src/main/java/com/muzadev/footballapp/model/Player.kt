@@ -1,6 +1,7 @@
 package com.muzadev.footballapp.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * Created by zulfakar on 21/10/18.
@@ -151,10 +152,10 @@ data class Player(
 
         @SerializedName("strDescriptionPL")
         val strDescriptionPL: Any? = null
-)
+) : Serializable
 
 data class PlayerResponse(
 
-        @SerializedName("players")
-        val players: List<PlayersItem>
+        @SerializedName("player")
+        val player: List<Player>
 )

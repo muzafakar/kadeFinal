@@ -10,6 +10,22 @@
     <string name="add_to_reminder">add to reminder</string>
     <string name="versus">VS</string>
     <string name="team_badge">Team Badge</string>
+    <string name="overview">Overview</string>
+    <string name="players">Players</string>
+    <string name="match_unavailable">This match detail will be available soon</string>
+    <string name="hometeam">Home</string>
+    <string name="awayteam">Away</string>
+    <string name="goals">Goals</string>
+    <string name="shots">Shots</string>
+    <string name="lineups">LINEUP</string>
+    <string name="goalkeeper">Goalkeepr</string>
+    <string name="defense">Defense</string>
+    <string name="midlefield">Midlefield</string>
+    <string name="forward">Forward</string>
+    <string name="subtituties">SUBTITUTIES</string>
+    <string name="weight_kg">Weight (Kg)</string>
+    <string name="height_m">Height (m)</string>
+    <string name="player_fanart">player fanart</string>
 
     <array name="ALL_LEAGUE_NAMES">
         <item>English Premier League</item>
