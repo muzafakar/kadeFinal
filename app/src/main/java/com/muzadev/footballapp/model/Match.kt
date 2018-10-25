@@ -1,166 +1,233 @@
 package com.muzadev.footballapp.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 
-data class Match(
+open class Match(
 
         @SerializedName("intHomeShots")
-        val intHomeShots: Any? = null,
+        var intHomeShots: String? = null,
 
         @SerializedName("strSport")
-        val strSport: String? = null,
+        var strSport: String? = null,
 
         @SerializedName("strHomeLineupDefense")
-        val strHomeLineupDefense: Any? = null,
+        var strHomeLineupDefense: String? = null,
 
         @SerializedName("strAwayLineupSubstitutes")
-        val strAwayLineupSubstitutes: Any? = null,
+        var strAwayLineupSubstitutes: String? = null,
 
         @SerializedName("idLeague")
-        val idLeague: String? = null,
+        var idLeague: String? = null,
 
         @SerializedName("idSoccerXML")
-        val idSoccerXML: String? = null,
+        var idSoccerXML: String? = null,
 
         @SerializedName("strHomeLineupForward")
-        val strHomeLineupForward: Any? = null,
-
-        @SerializedName("strTVStation")
-        val strTVStation: Any? = null,
+        var strHomeLineupForward: String? = null,
 
         @SerializedName("strHomeGoalDetails")
-        val strHomeGoalDetails: Any? = null,
+        var strHomeGoalDetails: String? = null,
 
         @SerializedName("strAwayLineupGoalkeeper")
-        val strAwayLineupGoalkeeper: Any? = null,
+        var strAwayLineupGoalkeeper: String? = null,
 
         @SerializedName("strAwayLineupMidfield")
-        val strAwayLineupMidfield: Any? = null,
+        var strAwayLineupMidfield: String? = null,
 
+        @PrimaryKey
         @SerializedName("idEvent")
-        val idEvent: String? = null,
+        var idEvent: String? = null,
 
         @SerializedName("intRound")
-        val intRound: String? = null,
+        var intRound: String? = null,
 
         @SerializedName("strHomeYellowCards")
-        val strHomeYellowCards: Any? = null,
+        var strHomeYellowCards: String? = null,
 
         @SerializedName("idHomeTeam")
-        val idHomeTeam: String? = null,
+        var idHomeTeam: String? = null,
 
         @SerializedName("intHomeScore")
-        val intHomeScore: Any? = null,
+        var intHomeScore: String? = null,
 
         @SerializedName("dateEvent")
-        val dateEvent: String? = null,
-
-        @SerializedName("strCountry")
-        val strCountry: Any? = null,
+        var dateEvent: String? = null,
 
         @SerializedName("strAwayTeam")
-        val strAwayTeam: String? = null,
+        var strAwayTeam: String? = null,
 
         @SerializedName("strHomeLineupMidfield")
-        val strHomeLineupMidfield: Any? = null,
+        var strHomeLineupMidfield: String? = null,
 
         @SerializedName("strDate")
-        val strDate: String? = null,
+        var strDate: String? = null,
 
         @SerializedName("strHomeFormation")
-        val strHomeFormation: Any? = null,
-
-        @SerializedName("strMap")
-        val strMap: Any? = null,
+        var strHomeFormation: String? = null,
 
         @SerializedName("idAwayTeam")
-        val idAwayTeam: String? = null,
+        var idAwayTeam: String? = null,
 
         @SerializedName("strAwayRedCards")
-        val strAwayRedCards: Any? = null,
-
-        @SerializedName("strBanner")
-        val strBanner: Any? = null,
-
-        @SerializedName("strFanart")
-        val strFanart: Any? = null,
-
-        @SerializedName("strDescriptionEN")
-        val strDescriptionEN: Any? = null,
-
-        @SerializedName("strResult")
-        val strResult: Any? = null,
-
-        @SerializedName("strCircuit")
-        val strCircuit: Any? = null,
+        var strAwayRedCards: String? = null,
 
         @SerializedName("intAwayShots")
-        val intAwayShots: Any? = null,
+        var intAwayShots: String? = null,
 
         @SerializedName("strFilename")
-        val strFilename: String? = null,
+        var strFilename: String? = null,
 
         @SerializedName("strTime")
-        val strTime: String? = null,
+        var strTime: String? = null,
 
         @SerializedName("strAwayGoalDetails")
-        val strAwayGoalDetails: Any? = null,
+        var strAwayGoalDetails: String? = null,
 
         @SerializedName("strAwayLineupForward")
-        val strAwayLineupForward: Any? = null,
+        var strAwayLineupForward: String? = null,
 
         @SerializedName("strLocked")
-        val strLocked: String? = null,
+        var strLocked: String? = null,
 
         @SerializedName("strSeason")
-        val strSeason: String? = null,
-
-        @SerializedName("intSpectators")
-        val intSpectators: Any? = null,
+        var strSeason: String? = null,
 
         @SerializedName("strHomeRedCards")
-        val strHomeRedCards: Any? = null,
+        var strHomeRedCards: String? = null,
 
         @SerializedName("strHomeLineupGoalkeeper")
-        val strHomeLineupGoalkeeper: Any? = null,
+        var strHomeLineupGoalkeeper: String? = null,
 
         @SerializedName("strHomeLineupSubstitutes")
-        val strHomeLineupSubstitutes: Any? = null,
+        var strHomeLineupSubstitutes: String? = null,
 
         @SerializedName("strAwayFormation")
-        val strAwayFormation: Any? = null,
+        var strAwayFormation: String? = null,
 
         @SerializedName("strEvent")
-        val strEvent: String? = null,
+        var strEvent: String? = null,
 
         @SerializedName("strAwayYellowCards")
-        val strAwayYellowCards: Any? = null,
+        var strAwayYellowCards: String? = null,
 
         @SerializedName("strAwayLineupDefense")
-        val strAwayLineupDefense: Any? = null,
+        var strAwayLineupDefense: String? = null,
 
         @SerializedName("strHomeTeam")
-        val strHomeTeam: String? = null,
-
-        @SerializedName("strThumb")
-        val strThumb: Any? = null,
+        var strHomeTeam: String? = null,
 
         @SerializedName("strLeague")
-        val strLeague: String? = null,
+        var strLeague: String? = null,
 
         @SerializedName("intAwayScore")
-        val intAwayScore: Any? = null,
+        var intAwayScore: String? = null
 
-        @SerializedName("strCity")
-        val strCity: Any? = null,
+) : RealmObject(), Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
 
-        @SerializedName("strPoster")
-        val strPoster: Any? = null
-) : Serializable
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(intHomeShots)
+        parcel.writeString(strSport)
+        parcel.writeString(strHomeLineupDefense)
+        parcel.writeString(strAwayLineupSubstitutes)
+        parcel.writeString(idLeague)
+        parcel.writeString(idSoccerXML)
+        parcel.writeString(strHomeLineupForward)
+        parcel.writeString(strHomeGoalDetails)
+        parcel.writeString(strAwayLineupGoalkeeper)
+        parcel.writeString(strAwayLineupMidfield)
+        parcel.writeString(idEvent)
+        parcel.writeString(intRound)
+        parcel.writeString(strHomeYellowCards)
+        parcel.writeString(idHomeTeam)
+        parcel.writeString(intHomeScore)
+        parcel.writeString(dateEvent)
+        parcel.writeString(strAwayTeam)
+        parcel.writeString(strHomeLineupMidfield)
+        parcel.writeString(strDate)
+        parcel.writeString(strHomeFormation)
+        parcel.writeString(idAwayTeam)
+        parcel.writeString(strAwayRedCards)
+        parcel.writeString(intAwayShots)
+        parcel.writeString(strFilename)
+        parcel.writeString(strTime)
+        parcel.writeString(strAwayGoalDetails)
+        parcel.writeString(strAwayLineupForward)
+        parcel.writeString(strLocked)
+        parcel.writeString(strSeason)
+        parcel.writeString(strHomeRedCards)
+        parcel.writeString(strHomeLineupGoalkeeper)
+        parcel.writeString(strHomeLineupSubstitutes)
+        parcel.writeString(strAwayFormation)
+        parcel.writeString(strEvent)
+        parcel.writeString(strAwayYellowCards)
+        parcel.writeString(strAwayLineupDefense)
+        parcel.writeString(strHomeTeam)
+        parcel.writeString(strLeague)
+        parcel.writeString(intAwayScore)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Match> {
+        override fun createFromParcel(parcel: Parcel): Match {
+            return Match(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Match?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
 
 data class MatchResponse(
 
-        @field:SerializedName("events")
+        @SerializedName("events")
         val events: List<Match>
 )

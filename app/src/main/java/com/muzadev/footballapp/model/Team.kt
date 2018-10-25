@@ -1,163 +1,115 @@
 package com.muzadev.footballapp.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 
-data class Team(
-
-        @SerializedName("intStadiumCapacity")
-        val intStadiumCapacity: String? = null,
-
-        @SerializedName("strTeamShort")
-        val strTeamShort: String? = null,
-
-        @SerializedName("strSport")
-        val strSport: String? = null,
-
-        @SerializedName("strDescriptionCN")
-        val strDescriptionCN: Any? = null,
-
-        @SerializedName("strTeamJersey")
-        val strTeamJersey: String? = null,
-
-        @SerializedName("strTeamFanart2")
-        val strTeamFanart2: String? = null,
-
-        @SerializedName("strTeamFanart3")
-        val strTeamFanart3: String? = null,
-
-        @SerializedName("strTeamFanart4")
-        val strTeamFanart4: String? = null,
-
+open class Team(
         @SerializedName("strStadiumDescription")
-        val strStadiumDescription: String? = null,
+        var strStadiumDescription: String? = null,
 
         @SerializedName("strTeamFanart1")
-        val strTeamFanart1: String? = null,
-
-        @SerializedName("intLoved")
-        val intLoved: String? = null,
+        var strTeamFanart1: String? = null,
 
         @SerializedName("idLeague")
-        val idLeague: String? = null,
-
-        @SerializedName("idSoccerXML")
-        val idSoccerXML: String? = null,
+        var idLeague: String? = null,
 
         @SerializedName("strTeamLogo")
-        val strTeamLogo: String? = null,
-
-        @SerializedName("strDescriptionSE")
-        val strDescriptionSE: Any? = null,
-
-        @SerializedName("strDescriptionJP")
-        val strDescriptionJP: Any? = null,
-
-        @SerializedName("strDescriptionFR")
-        val strDescriptionFR: Any? = null,
+        var strTeamLogo: String? = null,
 
         @SerializedName("strStadiumLocation")
-        val strStadiumLocation: String? = null,
-
-        @SerializedName("strDescriptionNL")
-        val strDescriptionNL: Any? = null,
+        var strStadiumLocation: String? = null,
 
         @SerializedName("strCountry")
-        val strCountry: String? = null,
-
-        @SerializedName("strRSS")
-        val strRSS: String? = null,
-
-        @SerializedName("strDescriptionRU")
-        val strDescriptionRU: Any? = null,
+        var strCountry: String? = null,
 
         @SerializedName("strTeamBanner")
-        val strTeamBanner: String? = null,
-
-        @SerializedName("strDescriptionNO")
-        val strDescriptionNO: Any? = null,
+        var strTeamBanner: String? = null,
 
         @SerializedName("strStadiumThumb")
-        val strStadiumThumb: String? = null,
-
-        @SerializedName("strDescriptionES")
-        val strDescriptionES: Any? = null,
+        var strStadiumThumb: String? = null,
 
         @SerializedName("intFormedYear")
-        val intFormedYear: String? = null,
+        var intFormedYear: String? = null,
 
-        @SerializedName("strInstagram")
-        val strInstagram: String? = null,
-
-        @SerializedName("strDescriptionIT")
-        val strDescriptionIT: String? = null,
-
+        @PrimaryKey
         @SerializedName("idTeam")
-        val idTeam: String? = null,
+        var idTeam: String? = null,
 
         @SerializedName("strDescriptionEN")
-        val strDescriptionEN: String? = null,
-
-        @SerializedName("strWebsite")
-        val strWebsite: String? = null,
-
-        @SerializedName("strYoutube")
-        val strYoutube: String? = null,
-
-        @SerializedName("strDescriptionIL")
-        val strDescriptionIL: Any? = null,
-
-        @SerializedName("strLocked")
-        val strLocked: String? = null,
-
-        @SerializedName("strAlternate")
-        val strAlternate: String? = null,
+        var strDescriptionEN: String? = null,
 
         @SerializedName("strTeam")
-        val strTeam: String? = null,
-
-        @SerializedName("strTwitter")
-        val strTwitter: String? = null,
-
-        @SerializedName("strDescriptionHU")
-        val strDescriptionHU: Any? = null,
-
-        @SerializedName("strGender")
-        val strGender: String? = null,
-
-        @SerializedName("strDivision")
-        val strDivision: Any? = null,
+        var strTeam: String? = null,
 
         @SerializedName("strStadium")
-        val strStadium: String? = null,
-
-        @SerializedName("strFacebook")
-        val strFacebook: String? = null,
+        var strStadium: String? = null,
 
         @SerializedName("strTeamBadge")
-        val strTeamBadge: String? = null,
-
-        @SerializedName("strDescriptionPT")
-        val strDescriptionPT: Any? = null,
-
-        @SerializedName("strDescriptionDE")
-        val strDescriptionDE: String? = null,
+        var strTeamBadge: String? = null,
 
         @SerializedName("strLeague")
-        val strLeague: String? = null,
+        var strLeague: String? = null,
 
         @SerializedName("strManager")
-        val strManager: String? = null,
+        var strManager: String? = null
+) : RealmObject(), Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
 
-        @SerializedName("strKeywords")
-        val strKeywords: String? = null,
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(strStadiumDescription)
+        parcel.writeString(strTeamFanart1)
+        parcel.writeString(idLeague)
+        parcel.writeString(strTeamLogo)
+        parcel.writeString(strStadiumLocation)
+        parcel.writeString(strCountry)
+        parcel.writeString(strTeamBanner)
+        parcel.writeString(strStadiumThumb)
+        parcel.writeString(intFormedYear)
+        parcel.writeString(idTeam)
+        parcel.writeString(strDescriptionEN)
+        parcel.writeString(strTeam)
+        parcel.writeString(strStadium)
+        parcel.writeString(strTeamBadge)
+        parcel.writeString(strLeague)
+        parcel.writeString(strManager)
+    }
 
-        @SerializedName("strDescriptionPL")
-        val strDescriptionPL: Any? = null
-) : Serializable
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Team> {
+        override fun createFromParcel(parcel: Parcel): Team {
+            return Team(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Team?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
 
 data class TeamResponse(
-
         @SerializedName("teams")
         val teams: List<Team>
 )

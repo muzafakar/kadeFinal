@@ -9,9 +9,9 @@ import com.muzadev.footballapp.R
 import com.muzadev.footballapp.view.fragment.FavouritesFragment
 import com.muzadev.footballapp.view.fragment.MatchesFragment
 import com.muzadev.footballapp.view.fragment.TeamsFragment
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.design.snackbar
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.app_name)
         setUpBottomNav()
         replaceFragment(MatchesFragment())
+
+        Realm.init(this)
     }
 
     private fun setUpBottomNav() {
@@ -29,17 +31,14 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.bottom_mathes -> {
                     replaceFragment(MatchesFragment())
-                    toast("${it.title}")
                     true
                 }
                 R.id.bottom_teams -> {
                     replaceFragment(TeamsFragment())
-                    toast("${it.title}")
                     true
                 }
                 R.id.bottom_favourties -> {
                     replaceFragment(FavouritesFragment())
-                    toast("${it.title}")
                     true
                 }
 
