@@ -2,24 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/abpMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/mainToolbar"
-            android:minHeight="?actionBarSize"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:subtitleTextColor="@android:color/white"
-            app:titleTextColor="@android:color/white" />
-    </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/mainFrame"

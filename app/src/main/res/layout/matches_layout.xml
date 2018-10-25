@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/ablCommon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tbCommon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?actionBarSize"
-            app:subtitle="@string/subtitle"
-            app:subtitleTextColor="@android:color/white"
-            app:title="@string/app_name"
-            app:titleTextColor="@android:color/white" />
-
-    </android.support.design.widget.AppBarLayout>
 
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/spCommon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ablCommon"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="@dimen/spinner_all_padding" />
 
     <ProgressBar

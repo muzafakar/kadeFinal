@@ -2,11 +2,10 @@ package com.muzadev.footballapp.view.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ProgressBar
@@ -26,6 +25,8 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.intentFor
+import org.jetbrains.anko.support.v4.toast
+
 
 /**
  * Created by zulfakar on 16/10/18.
@@ -40,6 +41,7 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
     private lateinit var presenter: TeamPresenter
     private lateinit var spinner: Spinner
     private lateinit var spinnerAdapter: ArrayAdapter<String>
+    private lateinit var v: View
 
     private val leagues = mutableListOf<String>()
     private val teamList = mutableListOf<Team>()
@@ -49,7 +51,6 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
         super.onCreate(savedInstanceState)
         leagues.addAll(ctx.resources.getStringArray(R.array.ALL_LEAGUE_NAMES))
         spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, leagues)
-
         rvAdapter = TeamAdapter(activity!!.applicationContext, teamList) {
             // intent to teamDetail
             ctx.startActivity(intentFor<TeamDetailActivity>(Const.team to it))
@@ -60,21 +61,39 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_sp_rv, container, false)
-        progressBar = view.pbCommon
+        v = inflater.inflate(R.layout.fragment_sp_rv, container, false)
+        v.tbCommon.subtitle = resources.getString(R.string.teams)
+        (activity as AppCompatActivity).setSupportActionBar(v.tbCommon)
+        progressBar = v.pbCommon
+        setHasOptionsMenu(true)
 
-        recyclerView = view.rvComon
+        recyclerView = v.rvComon
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = rvAdapter
 
-        spinner = view.spCommon
+        spinner = v.spCommon
         spinner.adapter = spinnerAdapter
         spinner.onItemSelectedListener = this
 
 
         //first  call
         presenter.getTeams(currentLeague)
-        return view
+        return v
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_search, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_search -> {
+                toast("search")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun showTeams(teams: List<Team>?) {

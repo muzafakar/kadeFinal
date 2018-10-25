@@ -15,14 +15,17 @@ import kotlinx.android.synthetic.main.fragment_tl_vp.view.*
  * For educational purposes
  */
 class MatchesFragment : Fragment() {
+    private lateinit var v: View
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_tl_vp, container, false)
-        setupViewPager(view.viewPager)
-        view.tabLayout.setupWithViewPager(view.viewPager, true)
-        return view
+        v = inflater.inflate(R.layout.fragment_tl_vp, container, false)
+        v.tbCommon.subtitle = resources.getString(R.string.matches)
+        setupViewPager(v.viewPager)
+        v.tabLayout.setupWithViewPager(v.viewPager, true)
+        return v
     }
 
-    fun setupViewPager(viewpager: ViewPager) {
+    private fun setupViewPager(viewpager: ViewPager) {
         val adapter = TabLayoutAdapter(childFragmentManager)
         adapter.addFragment(NextMatchFragment(), resources.getString(R.string.next))
         adapter.addFragment(LastMatchFragment(), resources.getString(R.string.last))

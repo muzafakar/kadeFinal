@@ -21,7 +21,7 @@ import com.muzadev.footballapp.util.Const
 import com.muzadev.footballapp.util.CoroutinesContextProvider
 import com.muzadev.footballapp.view.activity.MatchDetailActivity
 import com.muzadev.footballapp.view.adapter.MatchAdapter
-import kotlinx.android.synthetic.main.fragment_sp_rv.view.*
+import kotlinx.android.synthetic.main.matches_layout.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.intentFor
@@ -66,7 +66,7 @@ class LastMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_sp_rv, container, false)
+        val view = inflater.inflate(R.layout.matches_layout, container, false)
         progressBar = view.pbCommon
 
         recyclerView = view.rvComon

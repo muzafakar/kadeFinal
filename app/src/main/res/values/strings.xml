@@ -27,6 +27,8 @@
     <string name="height_m">Height (m)</string>
     <string name="player_fanart">player fanart</string>
     <string name="no_fav_found">No Favorite Found</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="search_item">search item</string>
 
     <array name="ALL_LEAGUE_NAMES">
         <item>English Premier League</item>
