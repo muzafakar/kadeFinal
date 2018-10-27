@@ -24,12 +24,11 @@ class FavouriteTeamFragment : Fragment() {
     private lateinit var realm: Realm
     private lateinit var v: View
     private lateinit var adapter: TeamAdapter
-    private val teams = mutableListOf<Team>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         realm = Realm.getDefaultInstance()
-        adapter = TeamAdapter(activity!!.applicationContext, teams) {
+        adapter = TeamAdapter(activity!!.applicationContext) {
             ctx.startActivity(intentFor<TeamDetailActivity>(Const.team to it))
         }
     }

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.muzadev.footballapp.R
 import com.muzadev.footballapp.model.Match
 import com.muzadev.footballapp.util.MyFormatter
+import com.muzadev.footballapp.view.fragment.MatchesFragment
 import kotlinx.android.synthetic.main.item_match.view.*
 
 /**
@@ -19,13 +20,29 @@ import kotlinx.android.synthetic.main.item_match.view.*
  * For educational purposes
  */
 class MatchAdapter(private val context: Context, private val matches: List<Match>, private val isNextMatch: Boolean = true, private val listener: (Match) -> Unit) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
+
+    companion object {
+        val list = mutableListOf<Match>()
+    }
+
+    fun filter(text: String) {
+        list.clear()
+        if (text.isEmpty()) {
+            list.addAll(MatchesFragment.list)
+        } else {
+            list.addAll(MatchesFragment.list.filter { it.strEvent!!.contains(text, true) })
+        }
+
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewTyoe: Int) =
             ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_match, parent, false))
 
-    override fun getItemCount() = matches.size
+    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, postition: Int) {
-        holder.bindItem(matches[postition], listener)
+        holder.bindItem(list[postition], listener)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

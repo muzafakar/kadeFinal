@@ -15,7 +15,6 @@ import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_rv.view.*
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.intentFor
-import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by zulfakar on 16/10/18.
@@ -45,9 +44,9 @@ class FavouriteMatchFragment : Fragment() {
 
     private fun getFavorites() {
         val favorites = realm.where(Match::class.java).findAll()
+        MatchAdapter.list.clear()
         if (favorites.isNotEmpty()) {
-            matches.clear()
-            matches.addAll(favorites)
+            MatchAdapter.list.addAll(favorites)
             adapter.notifyDataSetChanged()
             v.tvNoFav.visibility = View.GONE
         } else {

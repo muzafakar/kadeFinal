@@ -62,7 +62,7 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
         super.onCreate(savedInstanceState)
         leagues.addAll(ctx.resources.getStringArray(R.array.ALL_LEAGUE_NAMES))
         spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, leagues)
-        rvAdapter = TeamAdapter(activity!!.applicationContext, teamListFull) {
+        rvAdapter = TeamAdapter(activity!!.applicationContext) {
             // intent to teamDetail
             ctx.startActivity(intentFor<TeamDetailActivity>(Const.team to it))
         }

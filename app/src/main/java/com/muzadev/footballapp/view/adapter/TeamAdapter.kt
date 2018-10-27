@@ -16,7 +16,7 @@ import org.jetbrains.anko.AnkoLogger
  * Created by zulfakar on 18/10/18.
  * For educational purposes
  */
-class TeamAdapter(private val context: Context, private val teams: List<Team>, private val listener: (Team) -> Unit) : RecyclerView.Adapter<TeamAdapter.ViewHolder>(), AnkoLogger {
+class TeamAdapter(private val context: Context,  private val listener: (Team) -> Unit) : RecyclerView.Adapter<TeamAdapter.ViewHolder>(), AnkoLogger {
 
     companion object {
         val list = mutableListOf<Team>()

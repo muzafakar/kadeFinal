@@ -3,7 +3,6 @@ package com.muzadev.footballapp.view.activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import com.muzadev.footballapp.R
 import com.muzadev.footballapp.view.fragment.FavouritesFragment
 import com.muzadev.footballapp.view.fragment.MatchesFragment
@@ -45,12 +44,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStack("#", 0)
-        }
         supportFragmentManager.beginTransaction()
                 .replace(R.id.mainFrame, fragment)
-                .addToBackStack("#")
                 .commit()
     }
 }

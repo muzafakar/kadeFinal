@@ -32,10 +32,13 @@ class NextMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
     //    view
     private lateinit var progressBar: ProgressBar
     private lateinit var recyclerView: RecyclerView
-    private lateinit var spinner: Spinner
 
     //    adapter
-    private lateinit var rvAdapter: MatchAdapter
+    companion object {
+        lateinit var spinner: Spinner
+        lateinit var rvAdapter: MatchAdapter
+    }
+
     private lateinit var spAdapter: ArrayAdapter<String>
     private lateinit var presenter: MatchPresenter
 
@@ -79,8 +82,18 @@ class NextMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
     }
 
     override fun showNextMatch(matches: List<Match>) {
-        matchList.clear()
-        matchList.addAll(matches)
+        matches.let {
+            matchList.clear()
+            matchList.addAll(it)
+
+            MatchesFragment.list.clear()
+            MatchesFragment.list.addAll(it)
+
+            MatchAdapter.list.clear()
+            MatchAdapter.list.addAll(it)
+        }
+
+
         rvAdapter.notifyDataSetChanged()
     }
 
@@ -99,6 +112,7 @@ class NextMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+        LastMatchFragment.spinner.setSelection(position, true)
         currentLeagueId = leagueId[position]
         presenter.getNextMatch(currentLeagueId)
     }
