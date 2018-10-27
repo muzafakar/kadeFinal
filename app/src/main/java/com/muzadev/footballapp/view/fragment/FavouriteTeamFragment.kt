@@ -44,14 +44,14 @@ class FavouriteTeamFragment : Fragment() {
 
     private fun getFavorites() {
         val favorites = realm.where(Team::class.java).findAll()
+        TeamAdapter.list.clear()
         if (favorites.isNotEmpty()) {
-            teams.clear()
-            teams.addAll(favorites)
-            adapter.notifyDataSetChanged()
+            TeamAdapter.list.addAll(favorites)
             v.tvNoFav.visibility = View.GONE
         } else {
             v.tvNoFav.visibility = View.VISIBLE
         }
+        adapter.notifyDataSetChanged()
     }
 
     private fun setupRecyclerView() {
