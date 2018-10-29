@@ -72,7 +72,7 @@ class LastMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
         val view = inflater.inflate(R.layout.matches_layout, container, false)
         progressBar = view.pbCommon
 
-        recyclerView = view.rvComon
+        recyclerView = view.rvCommonMatch
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = rvAdapter
 
@@ -98,7 +98,6 @@ class LastMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
             MatchAdapter.list.clear()
             MatchAdapter.list.addAll(it)
         }
-
 
         rvAdapter.notifyDataSetChanged()
     }

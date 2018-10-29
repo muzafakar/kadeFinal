@@ -61,14 +61,13 @@ class NextMatchFragment : Fragment(), MatchView, AdapterView.OnItemSelectedListe
         }
 
         presenter = MatchPresenter(this, ApiRepo(), Gson(), CoroutinesContextProvider())
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.matches_layout, container, false)
         progressBar = view.pbCommon
 
-        recyclerView = view.rvComon
+        recyclerView = view.rvCommonMatch
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = rvAdapter
 

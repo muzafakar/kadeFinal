@@ -76,7 +76,7 @@ class TeamsFragment : Fragment(), TeamView, AdapterView.OnItemSelectedListener, 
         (activity as AppCompatActivity).setSupportActionBar(v.tbCommon)
         progressBar = v.pbCommon
 
-        recyclerView = v.rvComon
+        recyclerView = v.rvCommonTeam
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
         recyclerView.adapter = rvAdapter

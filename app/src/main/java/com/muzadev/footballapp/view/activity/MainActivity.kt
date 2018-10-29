@@ -1,7 +1,11 @@
 package com.muzadev.footballapp.view.activity
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import com.muzadev.footballapp.R
 import com.muzadev.footballapp.view.fragment.FavouritesFragment
@@ -18,6 +22,14 @@ class MainActivity : AppCompatActivity() {
         setUpBottomNav()
         replaceFragment(MatchesFragment())
         Realm.init(this)
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.WRITE_CALENDAR),
+                    1)
+        }
     }
 
     private fun setUpBottomNav() {

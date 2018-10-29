@@ -6,6 +6,7 @@ import com.muzadev.footballapp.api.ApiRepo
 import com.muzadev.footballapp.model.TeamResponse
 import com.muzadev.footballapp.presenter.interfaces.TeamView
 import com.muzadev.footballapp.util.CoroutinesContextProvider
+import com.muzadev.footballapp.util.IdlingRes
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.coroutines.experimental.bg
@@ -22,6 +23,8 @@ class TeamPresenter(
         private val context: CoroutinesContextProvider
 ) : AnkoLogger {
     fun getTeams(league: String) {
+        IdlingRes.main.increment()
+        IdlingRes.main.dumpStateToLogs()
         view.showLoading()
         async(context.main) {
             val data = bg {
@@ -30,6 +33,8 @@ class TeamPresenter(
             }
 
             view.showTeams(data.await())
+            IdlingRes.main.decrement()
+            IdlingRes.main.dumpStateToLogs()
             view.hideLoading()
         }
     }

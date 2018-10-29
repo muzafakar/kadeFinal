@@ -19,6 +19,7 @@ class MatchPresenter(
         private val gson: Gson,
         private val context: CoroutinesContextProvider
 ) {
+
     fun getNextMatch(leagueId: String) {
         async(context.main) {
             view.showLoading()

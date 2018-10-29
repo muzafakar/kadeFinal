@@ -1,9 +1,8 @@
 package com.muzadev.footballapp.view.adapter
 
-import android.content.ContentUris
+import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.provider.CalendarContract
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,6 +13,9 @@ import com.muzadev.footballapp.model.Match
 import com.muzadev.footballapp.util.MyFormatter
 import com.muzadev.footballapp.view.fragment.MatchesFragment
 import kotlinx.android.synthetic.main.item_match.view.*
+import org.jetbrains.anko.toast
+import java.util.*
+
 
 /**
  * Created by zulfakar on 18/10/18.
@@ -65,17 +67,30 @@ class MatchAdapter(private val context: Context, private val matches: List<Match
             } else {
                 itemView.imgReminder.setOnClickListener {
                     //                    Toast.makeText(context, "add to reminder", Toast.LENGTH_SHORT).show()
-                    openCalendar(match.strDate)
+                    openCalendar(match)
                 }
             }
         }
 
-        private fun openCalendar(date: String?) {
-            val startMillis: Long = 100
-            val builder: Uri.Builder = CalendarContract.CONTENT_URI.buildUpon().appendPath(date)
-            ContentUris.appendId(builder, startMillis)
-            val intent = Intent(Intent.ACTION_VIEW).setData(builder.build())
-            context.startActivity(intent)
+        @SuppressLint("MissingPermission")
+        private fun openCalendar(match: Match) {
+            val resolver = context.contentResolver
+            val values = ContentValues()
+
+
+            values.put(CalendarContract.Events.TITLE, match.strEvent)
+            values.put(CalendarContract.Events.DESCRIPTION, "Added from Football App")
+            values.put(CalendarContract.Events.CALENDAR_ID, 1)
+            values.put(CalendarContract.Events.DTSTART, Calendar.getInstance().timeInMillis)
+            values.put(CalendarContract.Events.DURATION, Calendar.getInstance().timeInMillis + 60 * 60 * 1000)
+            values.put(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().timeZone.id)
+
+
+
+            resolver.insert(CalendarContract.Events.CONTENT_URI, values)
+            context.toast("${match.strEvent} added to calendar")
+
+
         }
     }
 }
